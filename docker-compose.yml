@@ -1,0 +1,14 @@
+version: "2.2"
+services:
+  pytorch-gpu:
+    image: chharry/transformers-pytorch-gpu
+    volumes:
+      - .:/app
+      - ${PWD}/../analysis/:/analysis/
+      - ${HOME}/.cache/huggingface/:/root/.cache/huggingface/
+      - /home/hm/.jupyter/:/root/.jupyter/
+    ports:
+      - "20000:20000"
+    command:
+      jupyter lab --allow-root --ip=0.0.0.0 --port=20000 --NotebookApp.token='' --NotebookApp.password=''
+# DOCKER_OPTS="--dns 8.8.8.8"  docker run -p20000:20000 -v ${PWD}/analysis/:/analysis/ -v ${HOME}/.cache/huggingface/:/root/.cache/huggingface/ -v /home/hm/.jupyter/:/root/.jupyter/ -it chharry/transformers-pytorch-gpu:latest jupyter lab --allow-root --ip=0.0.0.0 --port=20000 --NotebookApp.token='' --NotebookApp.password=''
