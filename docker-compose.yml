@@ -3,7 +3,6 @@ services:
   pytorch-gpu:
     image: chharry/transformers-pytorch-gpu
     volumes:
-      - .:/app
       - ${PWD}/../analysis/:/analysis/
       - ${HOME}/.cache/huggingface/:/root/.cache/huggingface/
       - /home/hm/.jupyter/:/root/.jupyter/

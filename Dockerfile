@@ -9,7 +9,7 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip
 
 ARG REF=main
 RUN git clone https://github.com/huggingface/transformers && cd transformers && git checkout $REF
-RUN python3 -m pip install --no-cache-dir -e ./transformers[dev-torch,testing] notebook jupyter jupyterlab bokeh holoviews
+RUN python3 -m pip install --no-cache-dir -e ./transformers[dev-torch,testing] notebook jupyter jupyterlab bokeh holoviews jupyterlab pandas-datareader
 
 # If set to nothing, will install the latest version
 ARG PYTORCH='1.12.0'
